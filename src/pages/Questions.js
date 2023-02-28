@@ -4,6 +4,7 @@ import useAxios from "../hooks/useAxios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleScoreChange } from "../redux/actions";
+import { decode } from "html-entities";
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
@@ -36,7 +37,6 @@ const Questions = () => {
   const { response, loading } = useAxios({ url: apiUrl });
   const [questionIndex, setQuestionIndex] = useState(0);
   const [options, setOptions] = useState([]);
-  console.log("options:", options);
 
   useEffect(() => {
     if (response?.results.length) {
@@ -76,11 +76,13 @@ const Questions = () => {
   return (
     <Box>
       <Typography variant="h4">Questions {questionIndex + 1}</Typography>
-      <Typography mt={5}>{response.results[questionIndex].question}</Typography>
+      <Typography mt={5}>
+        {decode(response.results[questionIndex].question)}
+      </Typography>
       {options.map((data, id) => (
         <Box mt={2} key={id}>
           <Button variant="contained" onClick={handleClickAnswer}>
-            {data}
+            {decode(data)}
           </Button>
         </Box>
       ))}
