@@ -1,6 +1,6 @@
-A simple React.js Quiz App, where you can select question category, difficulty, type and amount to get the data from the Open Trivia Database API; answer the question, get the final score and return to settings to configure a new round and play again.
+A simple React.js Quiz App, where you can select question category, difficulty, type and amount to get the data from the Open Trivia Database API; answer the questions, get the final score and return to settings to configure a new round and play again.
 
-It uses Axios, Redux, Material UI and html entities.
+It uses Axios, Redux, Material UI, React Router Dom and html entities.
 
 This is a React app, run "npm install" after you cloned it, and than "npm start" to view it.
 
